@@ -1,33 +1,14 @@
 package com.example.refundmodule.web.dto;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-
 import java.util.ArrayList;
 
-@Entity
 public class RefundDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
     private int customerId;
 
-    @ElementCollection
-    private ArrayList<String> productIds;
-
-    public RefundDTO(Long id, String name, ArrayList<String> productIds)
-    {
-        this.id = id;
-        this.customerId = -1;
-        this.productIds = productIds;
-    }
-
-    public RefundDTO() {
-
-    }
+    private ArrayList<RefundProductDTO> productsToRefund;
 
     public long getId() {
         return id;
@@ -37,16 +18,15 @@ public class RefundDTO {
         this.id = id;
     }
 
-    @NotNull
     public int getCustomerId() {
         return customerId;
     }
 
-    public ArrayList<String> getProductIds() {
-        return productIds;
+    public ArrayList<RefundProductDTO> getProductsToRefund() {
+        return productsToRefund;
     }
 
-    public void setProductIds(ArrayList<String> productIds) {
-        this.productIds = productIds;
+    public void setProductIds(ArrayList<RefundProductDTO> productsToRefund) {
+        this.productsToRefund = productsToRefund;
     }
 }

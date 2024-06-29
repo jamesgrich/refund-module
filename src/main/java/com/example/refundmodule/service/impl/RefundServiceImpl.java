@@ -3,13 +3,13 @@ package com.example.refundmodule.service.impl;
 import com.example.refundmodule.persistence.model.Refund;
 import com.example.refundmodule.persistence.repository.RefundRepository;
 import com.example.refundmodule.service.RefundService;
+import com.example.refundmodule.web.dto.RefundProductDTO;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RefundServiceImpl implements RefundService {
+
+    private static final double SHIPPING_FEE = 3.99;
 
     private final RefundRepository refundRepository;
 
@@ -38,7 +38,18 @@ public class RefundServiceImpl implements RefundService {
 
     @Override
     public Refund save(Refund refund) {
-        // TODO: mark refund as status R (Refunded) in the database
+        // Mark refund as status R (Refunded) in the database
         return null;
     }
+
+    @Override
+    public void createRefund(Integer orderId, RefundProductDTO refundProductDTO) {
+
+        // Get the refunds that exist
+        // Query the payment provider using the payment reference
+        // Add the shipping fee using the constant at class level, as this would be the same fee across all orders
+        // Assert the response is of type 200 - OK
+        // Else return 400 - with the message "Payment could not be refunded";
+    }
+
 }

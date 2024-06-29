@@ -6,16 +6,19 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 @Entity
-public class Refund {
+public class RefundProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
-    private int customerId;
+    private int amount;
 
-    @ElementCollection
-    private ArrayList<String> productIds;
+    @NotNull
+    private int quantity;
+
+    @NotNull
+    private int paymentReferenceId;
 
 }
