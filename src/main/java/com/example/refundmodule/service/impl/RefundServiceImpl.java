@@ -44,7 +44,6 @@ public class RefundServiceImpl implements RefundService {
 
     @Override
     public void createRefund(Integer orderId, RefundProductDTO refundProductDTO) {
-
         // Get the refunds that exist
         // Query the payment provider using the payment reference
         // Add the shipping fee using the constant at class level, as this would be the same fee across all orders

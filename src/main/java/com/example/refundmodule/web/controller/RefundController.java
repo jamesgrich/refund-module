@@ -13,15 +13,13 @@ public class RefundController {
 
     private final RefundService refundService;
 
-    public RefundController(RefundService refundService)
-    {
+    public RefundController(RefundService refundService) {
         this.refundService = refundService;
     }
 
     //
     @PostMapping(path = "/refund")
-    public ResponseEntity initiateRefund(@PathVariable int orderId, @Valid @RequestBody RefundDTO refundDTO)
-    {
+    public ResponseEntity initiateRefund(@PathVariable int orderId, @Valid @RequestBody RefundDTO refundDTO) {
         // Call the validateRefundRequest method in the service layer
         // If the method returns true, proceed, if not throw a HTTP bad request with the message "Refund not allowed"
 
